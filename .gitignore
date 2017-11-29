@@ -18,6 +18,7 @@ pickle-email-*.html
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /db/assets_db/*
+/db/migrate/*
 
 # Ignore all logfiles and tempfiles.
 /log/*

@@ -1,0 +1,47 @@
+<%= form_with(model: directory, local: true) do |form| %>
+  <% if directory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(directory.errors.count, "error") %> prohibited this directory from being saved:</h2>
+
+      <ul>
+      <% directory.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :directory_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :users_id %>
+    <%= form.text_field :users_id, id: :directory_users_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :assets_id %>
+    <%= form.text_field :assets_id, id: :directory_assets_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :public %>
+    <%= form.check_box :public, id: :directory_public %>
+  </div>
+
+  <div class="field">
+    <%= form.label :owner_id %>
+    <%= form.text_field :owner_id, id: :directory_owner_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :parent_id %>
+    <%= form.text_field :parent_id, id: :directory_parent_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @directory.name %>
+</p>
+
+<p>
+  <strong>Users:</strong>
+  <%= @directory.users %>
+</p>
+
+<p>
+  <strong>Assets:</strong>
+  <%= @directory.assets %>
+</p>
+
+<p>
+  <strong>Public:</strong>
+  <%= @directory.public %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @directory.owner %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @directory.parent %>
+</p>
+
+<%= link_to 'Edit', edit_directory_path(@directory) %> |
+<%= link_to 'Back', directories_path %>
