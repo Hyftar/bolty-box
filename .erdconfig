@@ -1,0 +1,23 @@
+attributes:
+  - primary_key
+  - content
+  - foreign_key
+  - inheritance
+disconnected: true
+filename: database_diagram
+filetype: pdf
+indirect: true
+inheritance: true
+markup: true
+notation: simple
+orientation: vertical
+polymorphism: false
+sort: true
+warn: true
+title: Bolty-box database diagram
+exclude: null
+only: null
+only_recursion_depth: null
+prepend_primary: false
+cluster: false
+splines: spline
