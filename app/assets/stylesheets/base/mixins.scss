@@ -18,4 +18,8 @@
   border-radius: 50%;
   text-decoration: none;
   padding: calc(#{$font-size} / 4) calc(#{$font-size} / 2);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
