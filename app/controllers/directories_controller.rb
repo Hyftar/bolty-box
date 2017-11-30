@@ -69,6 +69,6 @@ class DirectoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def directory_params
-      params.require(:directory).permit(:name, :users_id, :assets_id, :public, :owner_id, :parent_id)
+      params.require(:directory).permit(:name, :users_id, :public, :user_id, :directory_id)
     end
 end
