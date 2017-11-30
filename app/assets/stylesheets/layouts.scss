@@ -1,0 +1,79 @@
+
+
+@mixin header-font {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.header {
+  flex-shrink: 1;
+  width: 100%;
+  min-width: 360px;
+  height: $header-height;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-content: center;
+  background-color: $primary-color;
+  color: $secondary-color;
+}
+
+.logo {
+  @include logo(24px);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.logo-container {
+  @include logo-container(24px);
+  padding: 6px 12px;
+  margin-right: 0px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
+}
+
+.header-button {
+  height: $header-height;
+  line-height: $header-height;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0 10px;
+  @include header-font;
+
+  &:hover {
+    background-color: $primary-color-light;
+    color: $secondary-color-light;
+  }
+}
+
+.center {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+.footer {
+  flex-shrink: 1;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  background-color: $primary-color;
+}
+
+.footer-button {
+  padding: 2px 5px;
+  color: $primary-color-dark;
+  &:visited {
+    color: $primary-color-dark;
+  }
+
+  &:hover {
+    color: $primary-color-light;
+  }
+}
