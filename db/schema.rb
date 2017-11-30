@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20171128071905) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.boolean "admin", default: false
     t.string "given_name", null: false
     t.string "last_name", null: false
     t.string "email", default: "", null: false
