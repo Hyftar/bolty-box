@@ -5,6 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# using some space tricks on active item
+gem 'jquery-rails'
+# Icons for files
+gem 'font-awesome-rails'
 # User managment
 gem 'devise'
 # File managment

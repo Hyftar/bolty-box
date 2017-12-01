@@ -1,3 +1,44 @@
 // Place all the styles related to the Directories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.directory-index-container {
+  border-radius: 10px;
+  background-color: $directory-background-color;
+  display: flex;
+  flex-grow: 1;
+  flex-flow: column wrap;
+  width: 96%;
+  margin: 1% auto;
+  padding: 1%;
+}
+
+.directory-index-show {
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  flex-flow: row wrap;
+  width: 96%;
+  margin: 5px auto;
+  padding: 1%;
+}
+
+.directory-index-show-icon {
+  margin: auto;
+  min-width: 45px;
+  font-size: 40px !important;
+}
+
+.directory-index-show-info-container {
+  display: flex;
+  flex-flow: row wrap;
+  flex-grow: 2;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.directory-index-show-info {
+  text-align: right;
+  width: calc(50% - 2px);
+  padding: 1px;
+}
