@@ -1,6 +1,7 @@
 // Place all the styles related to the Directories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$directory-line-height: 40px;
 
 .directory-index-container {
   border-radius: 10px;
@@ -25,20 +26,30 @@
 
 .directory-index-show-icon {
   margin: auto;
-  min-width: 45px;
-  font-size: 40px !important;
+  min-width: 10%;
+  font-size: $directory-line-height !important;
 }
 
 .directory-index-show-info-container {
   display: flex;
+  width: 50%;
   flex-flow: row wrap;
-  flex-grow: 2;
-  justify-content: space-between;
+  justify-content: flex-start;
+  line-height: $directory-line-height;
   align-content: space-between;
 }
 
 .directory-index-show-info {
-  text-align: right;
-  width: calc(50% - 2px);
+  text-align: center;
+  width: 30%;
   padding: 1px;
+}
+
+.padding-top-bot-min {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.line-inherit {
+  line-height: inherit;
 }

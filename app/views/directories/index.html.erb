@@ -2,6 +2,22 @@
   <p id="notice"><%= notice %></p>
 <% end %>
 <div class="directory-index-container">
+  <div class="directory-index-show padding-top-bot-min">
+    <div class="directory-index-show-icon"></div>
+    <div class="spacer"></div>
+    <div class="directory-index-show-info-container line-inherit">
+      <div class="directory-index-show-info">
+        Name
+      </div>
+      <div class="directory-index-show-info">
+        Owner
+      </div>
+      <div class="directory-index-show-info">
+        Public
+      </div>
+    </div>
+  </div>
+
   <% @directories.each do |directory| %>
     <%= link_to root_path, class: "directory-index-show" do %>
       <%= fa_icon "folder", class: "directory-index-show-icon" %>
@@ -11,7 +27,7 @@
           <%= directory.name %>
         </div>
         <div class="directory-index-show-info">
-          Owner : me
+          <%=  directory.user == current_user ? "me" : directory.user.full_name %>
         </div>
         <div class="directory-index-show-info">
           <%= public_text(directory) %>
