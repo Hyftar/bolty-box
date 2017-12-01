@@ -5,17 +5,17 @@ class DirectoriesControllerTest < ActionDispatch::IntegrationTest
     @directory = directories(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get directories_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_directory_url
     assert_response :success
   end
 
-  test "should create directory" do
+  test 'should create directory' do
     assert_difference('Directory.count') do
       post directories_url, params: { directory: { assets_id: @directory.assets_id, name: @directory.name, owner_id: @directory.owner_id, parent_id: @directory.parent_id, public: @directory.public, users_id: @directory.users_id } }
     end
@@ -23,22 +23,22 @@ class DirectoriesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to directory_url(Directory.last)
   end
 
-  test "should show directory" do
+  test 'should show directory' do
     get directory_url(@directory)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_directory_url(@directory)
     assert_response :success
   end
 
-  test "should update directory" do
+  test 'should update directory' do
     patch directory_url(@directory), params: { directory: { assets_id: @directory.assets_id, name: @directory.name, owner_id: @directory.owner_id, parent_id: @directory.parent_id, public: @directory.public, users_id: @directory.users_id } }
     assert_redirected_to directory_url(@directory)
   end
 
-  test "should destroy directory" do
+  test 'should destroy directory' do
     assert_difference('Directory.count', -1) do
       delete directory_url(@directory)
     end

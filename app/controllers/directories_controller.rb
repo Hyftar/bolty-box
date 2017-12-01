@@ -1,20 +1,17 @@
 class DirectoriesController < ApplicationController
-  before_action :set_directory, only: [:show, :edit, :update, :destroy]
+  before_action :set_directory, only: %i[show edit update destroy]
   before_action :set_user_directories, only: [:index]
   before_action :set_share_directories, only: [:share]
 
   # GET /directories
   # GET /directories.json
-  def index
-  end
+  def index; end
 
-  def share
-  end
+  def share; end
 
   # GET /directories/1
   # GET /directories/1.json
-  def show
-  end
+  def show; end
 
   # GET /directories/new
   def new
@@ -23,8 +20,7 @@ class DirectoriesController < ApplicationController
   end
 
   # GET /directories/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /directories
   # POST /directories.json

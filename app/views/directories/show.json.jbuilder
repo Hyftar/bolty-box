@@ -1,1 +1,1 @@
-json.partial! "directories/directory", directory: @directory
+json.partial! 'directories/directory', directory: @directory
