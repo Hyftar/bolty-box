@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   get 'about', to: 'static_pages#about'
   get 'contact', to: 'static_pages#contact'
 
-  resources :directories
+  resources :assets, except: %i[new create]
+
+  resources :directories do
+    resources :assets, only: %i[new create]
+  end
+
+  get 'share', to: 'directories#share'
 
   devise_for :users, skip: :all
   devise_scope :user do

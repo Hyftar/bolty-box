@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :user_id, value: current_user.id %>
+
+  <% if @parent_directory %>
+    <%= form.hidden_field :directory_id, value: 0 %>
+  <% end %>
+
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>

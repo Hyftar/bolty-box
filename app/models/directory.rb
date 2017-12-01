@@ -3,4 +3,9 @@ class Directory < ApplicationRecord
   has_many :assets
   belongs_to :user
   belongs_to :directory, optional: true
+
+  alias_attribute :parent, :directory
+  alias_attribute :owner, :user
+  alias_attribute :shared_with, :users
+  alias_attribute :public?, :public
 end
