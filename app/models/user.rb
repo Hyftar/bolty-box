@@ -14,4 +14,15 @@ class User < ApplicationRecord
   def full_name
     "#{given_name} #{last_name}"
   end
+
+  def allowed_to_browse?(directory)
+    directory.public? ||
+      admin? ||
+      directory.owner == self ||
+      directory.shared_with?(self)
+  end
+
+  def owner?(directory)
+    directory.owner == self || admin?
+  end
 end

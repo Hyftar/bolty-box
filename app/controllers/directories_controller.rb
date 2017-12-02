@@ -1,7 +1,11 @@
 class DirectoriesController < ApplicationController
-  before_action :set_directory, only: %i[show edit update destroy]
   before_action :set_user_directories, only: [:index]
   before_action :set_share_directories, only: [:share]
+
+  before_action :set_directory, only: %i[show edit update destroy]
+  before_action :set_children_directories, only: %i[show]
+  before_action :can_user_browse?, only: %i[show]
+  before_action :can_user_edit?, only: %i[edit update destroy]
 
   # GET /directories
   # GET /directories.json
@@ -65,23 +69,22 @@ class DirectoriesController < ApplicationController
   private
 
   def set_share_directories
-    dir_shared_with_user =
-      ActiveRecord::Base
-      .connection
-      .execute(
-        "SELECT directory_id
-        FROM directories_users
-        WHERE user_id=#{current_user.id}"
-      ).map { |x| x['directory_id'] }
-
     @directories =
       if current_user.admin?
         Directory.where(parent: nil)
       else
+        dir_shared_with_user =
+          ActiveRecord::Base
+          .connection
+          .execute(
+            "SELECT directory_id
+            FROM directories_users
+            WHERE user_id=#{current_user.id}"
+          ).map { |x| x['directory_id'] }
         Directory
           .where(user: current_user, parent: nil)
           .or(Directory.where(public: true, parent: nil))
-          .or(Directory.where(id: dir_shared_with_user))
+          .or(Directory.where(id: dir_shared_with_user, parent: nil))
       end
   end
 
@@ -97,5 +100,18 @@ class DirectoriesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def directory_params
     params.require(:directory).permit(:name, :public, :user_id, :directory_id)
+  end
+
+  # Must be ran after set_directory
+  def set_children_directories
+    @directories = @directory.children_shared_with(current_user)
+  end
+
+  def can_user_browse?
+    redirect_to root_path, alert: 'Unauthorized' unless current_user.allowed_to_browse?(@directory)
+  end
+
+  def can_user_edit?
+    redirect_to root_path, alert: 'Unauthorized' unless current_user.owner?(@directory)
   end
 end
