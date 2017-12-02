@@ -9,7 +9,7 @@ filetype: pdf
 indirect: true
 inheritance: true
 markup: true
-notation: simple
+notation: bachman
 orientation: vertical
 polymorphism: false
 sort: true
@@ -18,6 +18,6 @@ title: Bolty-box database diagram
 exclude: null
 only: null
 only_recursion_depth: null
-prepend_primary: false
+prepend_primary: true
 cluster: false
 splines: spline
