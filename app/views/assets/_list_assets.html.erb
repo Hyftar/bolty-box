@@ -1,0 +1,40 @@
+<div class="directory-index-show padding-top-bot-min">
+  <div class="directory-index-show-icon"></div>
+  <div class="spacer"></div>
+  <div class="directory-index-show-info-container line-inherit">
+    <div class="directory-index-show-info">
+      Name
+    </div>
+    <div class="directory-index-show-info">
+      Owner
+    </div>
+    <div class="directory-index-show-info">
+      Public
+    </div>
+    <div class="directory-index-show-info">
+      Size
+    </div>
+  </div>
+</div>
+
+<% @assets.each do |asset| %>
+  <%= link_to directory_path(directory), class: "directory-index-show" do %>
+  <%= fa_icon "folder", class: "directory-index-show-icon" %>
+  <div class="spacer"></div>
+  <div class="directory-index-show-info-container">
+    <div class="directory-index-show-info">
+      <%= asset.name %>
+    </div>
+    <div class="directory-index-show-info">
+      <%= asset_owner_alias(asset) %>
+    </div>
+    <div class="directory-index-show-info">
+      <%= asset_public_text(asset) %>
+    </div>
+    <div class="directory-index-show-info">
+      <%= asset.size%>
+    </div>
+  </div>
+  <% end %>
+<% end %>
+</div>
