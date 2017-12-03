@@ -1,6 +1,4 @@
 <% if notice %>
   <p id="notice"><%= notice %></p>
 <% end %>
-<div class="directory-index-container">
-  <%= render partial: 'list_dirs', locals: { directories: @directories } %>
-</div>
+<%= render partial: 'list_dir_only', locals: { directories: @directories } %>
