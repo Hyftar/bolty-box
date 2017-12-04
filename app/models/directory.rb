@@ -37,6 +37,8 @@ class Directory < ApplicationRecord
              WHERE directory_id = #{id} AND (
                public = 't'
                OR
+               user_id = #{user.id}
+               OR
                id IN
                (SELECT directory_id
                  FROM directories_users
