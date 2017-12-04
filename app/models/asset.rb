@@ -7,4 +7,6 @@ class Asset < ApplicationRecord
     preserve_files: false,
     adapter_options: { hash_digest: Digest::MD5 }
   )
+
+  do_not_validate_attachment_file_type :file
 end
