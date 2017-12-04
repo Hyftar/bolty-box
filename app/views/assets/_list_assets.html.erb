@@ -13,7 +13,7 @@
 </div>
 
 <% @directory.assets.each do |asset| %>
-  <%= link_to root_path, class: "directory-index-show" do %>
+  <%= link_to download_asset_path(asset), class: "directory-index-show" do %>
   <%= fa_icon "file", class: "directory-index-show-icon-file" %>
   <div class="directory-index-show-info-container-file">
     <div class="directory-index-show-info">

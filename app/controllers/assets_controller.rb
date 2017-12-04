@@ -1,5 +1,5 @@
 class AssetsController < ApplicationController
-  before_action :set_asset, only: [:show, :edit, :update, :destroy]
+  before_action :set_asset, only: [:show, :edit, :update, :destroy, :download]
 
   # GET /assets
   # GET /assets.json
