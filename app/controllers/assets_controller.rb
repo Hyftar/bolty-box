@@ -21,6 +21,14 @@ class AssetsController < ApplicationController
   def edit
   end
 
+  def download
+    send_file(
+      @asset.file.path,
+      filename: @asset.file_file_name,
+      type: @asset.file_content_type
+    )
+  end
+
   # POST /assets
   # POST /assets.json
   def create
