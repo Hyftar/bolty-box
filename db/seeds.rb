@@ -87,3 +87,22 @@ Directory.create(
   owner: User.fourth,
   parent: Directory.third
 )
+
+# Create a file to use as an asset
+File.open('db/test/test.txt', 'w') do |f|
+  f.puts 'hello world'
+end
+
+File.open('db/test/test2.txt', 'w') do |f|
+  f.puts 'hello Billy'
+end
+
+Asset.create(
+  file: File.new("#{Rails.root}/db/test/test.txt"),
+  directory: Directory.first
+)
+
+Asset.create(
+  file: File.new("#{Rails.root}/db/test/test2.txt"),
+  directory: Directory.first
+)
