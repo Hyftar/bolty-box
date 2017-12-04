@@ -88,6 +88,13 @@ Directory.create(
   parent: Directory.third
 )
 
+Directory.create(
+  name: 'test-dir-8',
+  public: false,
+  owner: User.second,
+  parent: Directory.first
+)
+
 # Create a file to use as an asset
 File.open('db/test/test.txt', 'w') do |f|
   f.puts 'hello world'
