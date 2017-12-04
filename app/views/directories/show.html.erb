@@ -1,1 +1,4 @@
-<%= render partial: 'list_dir_only', locals: { directories: @directories } %>
+<div class="directory-index-container">
+  <%= render partial: 'list_dirs', locals: { directories: @directories } %>
+  <%= render partial: 'assets/list_assets', locals: { directory: @directory } %>
+</div>
