@@ -28,27 +28,21 @@ class Directory < ApplicationRecord
     if user.admin?
       Directory.where(parent: self)
     else
-      Directory.where(id:
-        ActiveRecord::Base
-          .connection
-          .execute(
-            "SELECT id
-             FROM directories
-             WHERE directory_id = #{id} AND (
-               public = 't'
-               OR
-               user_id = #{user.id}
-               OR
-               id IN
-               (SELECT directory_id
-                 FROM directories_users
-                 WHERE user_id = #{user.id}
-               )
-             )
-            "
+      Directory.find_by_sql("
+        SELECT *
+        FROM directories
+        WHERE directory_id = #{id} AND (
+          public = 't'
+          OR
+          user_id = #{user.id}
+          OR
+          id IN
+          (SELECT directory_id
+            FROM directories_users
+            WHERE user_id = #{user.id}
           )
-          .map { |x| x['id'] }
-      )
+        )
+      ")
     end
   end
 end
