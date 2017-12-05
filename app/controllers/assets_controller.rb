@@ -1,5 +1,7 @@
 class AssetsController < ApplicationController
   before_action :set_asset, only: [:show, :edit, :update, :destroy, :download]
+  before_action :can_user_use?, only: [:show, :download]
+  before_action :can_user_edit?, only: [:edit, :update, :destroy]
   before_action :set_directory, only: [:new]
 
   # GET /assets
@@ -71,6 +73,15 @@ class AssetsController < ApplicationController
   end
 
   private
+
+    def can_user_edit?
+      redirect_to root_path, alert: 'Unauthorized' unless current_user.owner?(@asset.parent)
+    end
+
+    def can_user_use?
+      redirect_to root_path, alert: 'Unauthorized' unless current_user.allowed_to_browse?(@asset.parent)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_asset
       @asset = Asset.find(params[:id])
