@@ -1,8 +1,7 @@
 <div class="directory-index-container">
-  <% if @directory.parent %>
-    <%= link_to "Parent folder", directory_path(@directory.parent), class: "directory-index-return" %>
-  <% else %>
-    <%= link_to "Parent folder", directories_path, class: "directory-index-return" %>
+  <%= link_to @directory.parent ? directory_path(@directory.parent) : directories_path, class: "directory-index-return" do %>
+    <%= fa_icon 'arrow-left' %>
+    <span class="directory-button-text">Parent folder</span>
   <% end %>
   <%= render partial: 'list_dirs', locals: { directories: @directories } %>
   <%= render partial: 'assets/list_assets', locals: { directory: @directory } %>
