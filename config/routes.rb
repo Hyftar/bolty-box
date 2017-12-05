@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   devise_for :users, skip: :all
   devise_scope :user do
     scope :users do
+      get 'profile', to: 'users#show', as: 'user_profile'
       get 'sign_in', to: 'devise/sessions#new', as: 'new_user_session'
       post 'sign_in', to: 'devise/sessions#create', as: 'user_session'
       delete 'sign_out', to: 'devise/sessions#destroy', as: 'destroy_user_session'
