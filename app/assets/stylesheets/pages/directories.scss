@@ -12,8 +12,22 @@ $icon-width: 6%;
   flex-grow: 1;
   flex-flow: column wrap;
   width: 96%;
-  margin: 1% auto;
-  padding: 1%;
+  margin: 5px auto;
+  padding: 5px;
+}
+
+.directory-index-return {
+  margin: 5px 85% 5px 1.75%;
+  width: 10%;
+  background-color: white;
+  padding: 0.5%;
+  text-align: center;
+  border-radius: 10px;
+  &:hover {
+    width: 10%;
+    margin: 5px 85% 5px 1.75%;
+    padding: 0.65%
+  }
 }
 
 .directory-index-show {
