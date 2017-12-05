@@ -11,6 +11,13 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :directory_id, value: @directory_id %>
+
+  <div class="field">
+    <%= form.label :file %>
+    <%= form.file_field :file %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -1,5 +1,6 @@
 class AssetsController < ApplicationController
   before_action :set_asset, only: [:show, :edit, :update, :destroy, :download]
+  before_action :set_directory, only: [:new]
 
   # GET /assets
   # GET /assets.json
@@ -73,6 +74,10 @@ class AssetsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_asset
       @asset = Asset.find(params[:id])
+    end
+
+    def set_directory
+      @directory_id = params[:directory_id]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

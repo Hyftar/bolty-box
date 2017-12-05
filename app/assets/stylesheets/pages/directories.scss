@@ -5,6 +5,13 @@ $directory-line-height: 40px;
 $file-line-height: 20px;
 $icon-width: 6%;
 
+.directory-actions-links {
+  display: flex;
+  justify-content: space-around;
+  margin: 5px auto;
+  width: 97.5%;
+}
+
 .directory-index-container {
   border-radius: 10px;
   background-color: $directory-background-color;
@@ -17,12 +24,13 @@ $icon-width: 6%;
 }
 
 .directory-index-return {
-  margin: 5px 85% 5px 1.75%;
-  width: 10%;
+  min-width: 11%;
   background-color: $secondary-color-light;
   padding: 0.5%;
   text-align: center;
   border-radius: 10px;
+  margin: 5px;
+  line-height: 10px;
   &:hover {
     background-color: $secondary-color-dark;
   }

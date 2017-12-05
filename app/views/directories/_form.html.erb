@@ -13,8 +13,8 @@
 
   <%= form.hidden_field :user_id, value: current_user.id %>
 
-  <% if @parent_directory %>
-    <%= form.hidden_field :directory_id, value: 0 %>
+  <% if @parent_directory_id %>
+    <%= form.hidden_field :directory_id, value: @parent_directory_id %>
   <% end %>
 
   <div class="field">

@@ -2,6 +2,8 @@ class DirectoriesController < ApplicationController
   before_action :set_user_directories, only: [:index]
   before_action :set_share_directories, only: [:share]
 
+  before_action :set_parent_directory_id, only: [:new]
+
   before_action :set_directory, only: %i[show edit update destroy]
   before_action :set_children_directories, only: %i[show]
   before_action :can_user_browse?, only: %i[show]
@@ -90,6 +92,10 @@ class DirectoriesController < ApplicationController
 
   def set_user_directories
     @directories = Directory.where(user: current_user, parent: nil)
+  end
+
+  def set_parent_directory_id
+    @parent_directory_id = params[:parent_id]
   end
 
   # Use callbacks to share common setup or constraints between actions.
