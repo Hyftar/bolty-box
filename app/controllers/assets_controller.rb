@@ -1,27 +1,11 @@
 class AssetsController < ApplicationController
-  before_action :set_asset, only: [:show, :edit, :update, :destroy, :download]
-  before_action :can_user_use?, only: [:show, :download]
-  before_action :can_user_edit?, only: [:edit, :update, :destroy]
+  before_action :set_asset, only: [:destroy, :download]
+  before_action :can_user_use?, only: [:download]
+  before_action :can_user_edit?, only: [:destroy]
   before_action :set_directory, only: [:new]
 
-  # GET /assets
-  # GET /assets.json
-  def index
-    @assets = Asset.all
-  end
-
-  # GET /assets/1
-  # GET /assets/1.json
-  def show
-  end
-
-  # GET /assets/new
   def new
     @asset = Asset.new
-  end
-
-  # GET /assets/1/edit
-  def edit
   end
 
   def download
@@ -43,20 +27,6 @@ class AssetsController < ApplicationController
         format.json { render :show, status: :created, location: @asset }
       else
         format.html { render :new }
-        format.json { render json: @asset.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /assets/1
-  # PATCH/PUT /assets/1.json
-  def update
-    respond_to do |format|
-      if @asset.update(asset_params)
-        format.html { redirect_to @asset, notice: 'Asset was successfully updated.' }
-        format.json { render :show, status: :ok, location: @asset }
-      else
-        format.html { render :edit }
         format.json { render json: @asset.errors, status: :unprocessable_entity }
       end
     end

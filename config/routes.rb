@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'about', to: 'static_pages#about'
   get 'contact', to: 'static_pages#contact'
 
-  resources :assets, except: %i[new] do
+  resources :assets, only: %i[create destroy] do
     get 'download', to: 'assets#download', as: 'download', on: :member
   end
 
