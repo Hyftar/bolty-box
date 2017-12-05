@@ -11,6 +11,17 @@ class User < ApplicationRecord
 
   alias_attribute :admin?, :admin
 
+  def assets_owned
+    Asset.find_by_sql("
+      SELECT *
+      FROM assets
+      WHERE directory_id in
+        (SELECT id
+          FROM directories
+          WHERE user_id = #{id})
+    ")
+  end
+
   def full_name
     "#{given_name} #{last_name}"
   end
