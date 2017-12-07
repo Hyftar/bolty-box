@@ -23,8 +23,8 @@ class AssetsController < ApplicationController
 
     respond_to do |format|
       if @asset.save
-        format.html { redirect_to @asset, notice: 'Asset was successfully created.' }
-        format.json { render :show, status: :created, location: @asset }
+        format.html { redirect_to @asset.directory, notice: 'Asset was successfully created.' }
+        format.json { render :show, status: :created }
       else
         format.html { render :new }
         format.json { render json: @asset.errors, status: :unprocessable_entity }
@@ -37,7 +37,7 @@ class AssetsController < ApplicationController
   def destroy
     @asset.destroy
     respond_to do |format|
-      format.html { redirect_to assets_url, notice: 'Asset was successfully destroyed.' }
+      format.html { redirect_to @asset.directory, notice: 'Asset was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -45,11 +45,11 @@ class AssetsController < ApplicationController
   private
 
   def can_user_edit?
-    redirect_to root_path, alert: 'Unauthorized' unless current_user.owner?(@asset.parent)
+    redirect_to root_path, alert: 'Unauthorized' unless current_user.owner?(@asset.directory)
   end
 
   def can_user_use?
-    redirect_to root_path, alert: 'Unauthorized' unless current_user.allowed_to_browse?(@asset.parent)
+    redirect_to root_path, alert: 'Unauthorized' unless current_user.allowed_to_browse?(@asset.directory)
   end
 
   # Use callbacks to share common setup or constraints between actions.
