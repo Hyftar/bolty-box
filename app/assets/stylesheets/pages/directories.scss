@@ -5,13 +5,6 @@ $directory-line-height: 40px;
 $file-line-height: 20px;
 $icon-width: 6%;
 
-.directory-actions-links {
-  display: flex;
-  justify-content: space-around;
-  margin: 5px auto;
-  width: 97.5%;
-}
-
 .directory-index-container {
   border-radius: 10px;
   background-color: $directory-background-color;
@@ -34,6 +27,13 @@ $icon-width: 6%;
   &:hover {
     background-color: $secondary-color-dark;
   }
+}
+
+.directory-actions-links {
+  display: flex;
+  justify-content: space-around;
+  margin: 5px auto;
+  width: 97.5%;
 }
 
 .directory-button-text {
@@ -90,6 +90,57 @@ $icon-width: 6%;
   padding: 1px;
 }
 
+.directory-submit-line {
+  font-size: 25px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.directory-submit-name {
+  text-align: center;
+  margin-right: 5px;
+}
+
+.directory-submit-textfield {
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  width: 150px;
+}
+
+.directory-submit-button {
+  text-align: center;
+  margin: auto;
+  background-color: $secondary-color;
+  border-radius: 10px;
+  &:hover {
+    background-color: $secondary-color-dark;
+  }
+}
+
+.directory-submit-back-button {
+  align-self: flex-end;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: $secondary-color;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 25px;
+  &:hover {
+    background-color: $secondary-color-dark;
+  }
+}
+
+.directory-submit-width-block{
+  width: 40%
+}
+
 .padding-top-bot-min {
   padding-top: 1px;
   padding-bottom: 1px;
@@ -101,4 +152,8 @@ $icon-width: 6%;
 
 .linebreak {
   width: 100%;
+}
+
+.text-center {
+  text-align: center;
 }
