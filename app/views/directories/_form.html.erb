@@ -2,7 +2,6 @@
   <% if directory.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(directory.errors.count, "error") %> prohibited this directory from being saved:</h2>
-
       <ul>
       <% directory.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -17,17 +16,23 @@
     <%= form.hidden_field :directory_id, value: @parent_directory_id %>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="directory-submit-line">
+    <div class="directory-submit-width-block"></div>
+    <%= form.label :name, class: "directory-submit-name" %>
+    <%= form.text_field :name, class: "directory-submit-textfield" %>
+    <div class="spacer"></div>
   </div>
 
-  <div class="field">
-    <%= form.label :public %>
+  <div class="directory-submit-line">
+    <div class="directory-submit-width-block"></div>
+    <%= form.label :public, class:"directory-submit-name" %>
     <%= form.check_box :public %>
+    <div class="spacer"></div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="directory-submit-line">
+    <div class="directory-submit-width-block"></div>
+    <%= form.submit("Add directory",class: "directory-submit-button")%>
+    <div class="spacer"></div>
   </div>
 <% end %>

@@ -1,0 +1,6 @@
+<div class="directory-index-container">
+  <div class="spacer"></div>
+  <%= link_to directory_path(directory), method: :delete, data: {confirm: "Are you sure you wanna destroy this directory"} do %>
+    <div class="directory-index-destroy-button">Destroy this directory</div>
+  <% end %>
+</div>
