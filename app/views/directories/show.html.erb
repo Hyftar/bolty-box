@@ -1,5 +1,7 @@
 <div class="directory-index-container">
-  <%= render partial: 'show_parent', locals: {directory: @directory} %>
+  <%= render partial: 'show_parent_options', locals: {directory: @directory} %>
   <%= render partial: 'list_dirs', locals: { directories: @directories } %>
   <%= render partial: 'assets/list_assets', locals: { directory: @directory } %>
+  <div class="spacer"></div>
+  <%= render partial: 'destroy_dir', locals: {directory: @directory} %>
 </div>
