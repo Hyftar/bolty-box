@@ -90,6 +90,19 @@ $icon-width: 6%;
   padding: 1px;
 }
 
+.directory-index-destroy-button {
+  margin-left: auto;
+  text-align: center;
+  align-self: flex-end;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: $secondary-color;
+  &:hover {
+    background-color: $secondary-color-dark;
+  }
+}
+
 .directory-submit-line {
   font-size: 25px;
   display: flex;
