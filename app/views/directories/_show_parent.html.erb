@@ -5,7 +5,15 @@
     <span class="directory-button-text">Parent folder</span>
   </div>
   <% end %>
+
   <div class="spacer"></div>
+
+  <%= link_to new_directory_asset_path(directory), class: 'directory-index-return' do %>
+  <div>
+    <%= fa_icon 'plus' %>
+    <span class="directory-button-text">Add file</span>
+  </div>
+  <% end %>
 
   <%= link_to new_directory_path(parent_id: directory.id), class: 'directory-index-return' do %>
   <div>
@@ -14,10 +22,4 @@
   </div>
   <% end %>
 
-  <%= link_to new_directory_asset_path(directory), class: 'directory-index-return' do %>
-  <div>
-    <%= fa_icon 'plus' %>
-    <span class="directory-button-text">Add file</span>
-  </div>
-  <% end %>
 </div>

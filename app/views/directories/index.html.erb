@@ -2,15 +2,4 @@
   <p id="notice"><%= notice %></p>
 <% end %>
 
-<div class="directory-actions-links">
-  <div class="spacer"></div>
-
-  <%= link_to new_directory_path, class: 'directory-index-return' do %>
-  <div>
-    <%= fa_icon 'plus' %>
-    <span class="directory-button-text">Add folder</span>
-  </div>
-  <% end %>
-</div>
-
 <%= render partial: 'list_dir_only', locals: { directories: @directories } %>
