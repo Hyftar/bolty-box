@@ -1,0 +1,17 @@
+<% @shared_users.each do |user| %>
+<%= form_tag({ controller: 'directories', action: 'add_to_share_create'}) do %>
+    <%= label_tag(user.full_name) %>
+    <%= hidden_field_tag(:user_id, user.id) %>
+    <%= hidden_field_tag(:share, 'f') %>
+    <%= submit_tag 'unshare' %>
+  <% end %>
+<% end %>
+
+<% @other_users.each do |user| %>
+  <%= form_tag({ controller: 'directories', action: 'add_to_share_create'}) do %>
+    <%= label_tag(user.full_name) %>
+    <%= hidden_field_tag(:user_id, user.id) %>
+    <%= hidden_field_tag(:share, 't') %>
+    <%= submit_tag 'share' %>
+  <% end %>
+<% end %>

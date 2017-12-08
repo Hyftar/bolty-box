@@ -5,6 +5,10 @@ $directory-line-height: 40px;
 $file-line-height: 20px;
 $icon-width: 6%;
 
+.has-right-margin {
+  margin-right: 15px;
+}
+
 .directory-index-container {
   border-radius: 10px;
   background-color: $directory-background-color;

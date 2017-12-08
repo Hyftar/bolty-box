@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :directories do
     resources :assets, only: %i[new]
+    get 'add_to_share', to: 'directories#add_to_share_new'
+    post 'add_to_share', to: 'directories#add_to_share_create'
   end
 
   get 'share', to: 'directories#share'

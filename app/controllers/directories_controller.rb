@@ -1,3 +1,6 @@
+require "byebug"
+
+
 class DirectoriesController < ApplicationController
   before_action :set_user_directories, only: [:index]
   before_action :set_share_directories, only: [:share]
@@ -5,15 +8,37 @@ class DirectoriesController < ApplicationController
   before_action :set_parent_directory_id, only: [:new]
 
   before_action :set_directory, only: %i[show edit update destroy]
+  before_action :set_add_to_share_directory, only: %i[add_to_share_new add_to_share_create]
+
   before_action :set_children_directories, only: %i[show]
   before_action :can_user_browse?, only: %i[show]
-  before_action :can_user_edit?, only: %i[edit update destroy]
+  before_action :can_user_edit?, only: %i[edit update destroy add_to_share_new add_to_share_create]
 
   # GET /directories
   # GET /directories.json
   def index; end
 
   def share; end
+
+  def add_to_share_new
+    # HACK: A bit hacky (non-elegant) way to do things.. but it works.
+    @shared_users = User.where(id: @directory.shared_with)
+    @other_users = User.where.not(id: @shared_users + [@directory.owner])
+  end
+
+  def add_to_share_create
+    add_to_share_params # Uncertain if this actually does anything..
+    @user = User.find(params[:user_id])
+    respond_to do |format|
+      if params[:share] == 't'
+        @directory.shared_with << @user
+        format.html { redirect_to directory_add_to_share_url(@directory), notice: "Shared with #{@user.full_name} successfully." }
+      else
+        @directory.shared_with.delete(@user)
+        format.html { redirect_to directory_add_to_share_url(@directory), notice: "Unshared with #{@user.full_name} successfully." }
+      end
+    end
+  end
 
   # GET /directories/1
   # GET /directories/1.json
@@ -101,6 +126,15 @@ class DirectoriesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_directory
     @directory = Directory.find(params[:id])
+  end
+
+  def set_add_to_share_directory
+    @directory = Directory.find(params[:directory_id])
+  end
+
+  def add_to_share_params
+    params.require(:user_id)
+    params.permit(:share)
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
