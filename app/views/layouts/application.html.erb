@@ -13,6 +13,7 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="center">
+      <%= render partial: 'layouts/notice', locals: {notice: notice} %>
       <%= yield %>
     </div>
     <%= render 'layouts/footer' %>
