@@ -1,27 +1,5 @@
 <div class="directory-index-container">
-  <div class="directory-actions-links">
-    <%= link_to @directory.parent ? directory_path(@directory.parent) : directories_path, class: "directory-index-return" do %>
-    <div>
-      <%= fa_icon 'arrow-left' %>
-      <span class="directory-button-text">Parent folder</span>
-    </div>
-    <% end %>
-    <div class="spacer"></div>
-
-    <%= link_to new_directory_path(parent_id: @directory.id), class: 'directory-index-return' do %>
-    <div>
-      <%= fa_icon 'plus' %>
-      <span class="directory-button-text">Add folder</span>
-    </div>
-    <% end %>
-
-    <%= link_to new_directory_asset_path(@directory), class: 'directory-index-return' do %>
-    <div>
-      <%= fa_icon 'plus' %>
-      <span class="directory-button-text">Add file</span>
-    </div>
-    <% end %>
-  </div>
+  <%= render partial: 'show_parent', locals: {directory: @directory} %>
   <%= render partial: 'list_dirs', locals: { directories: @directories } %>
   <%= render partial: 'assets/list_assets', locals: { directory: @directory } %>
 </div>
