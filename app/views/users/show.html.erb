@@ -1,5 +1,9 @@
 <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
 
+<% if current_user.admin? %>
+  <%= link_to 'create new user account', new_user_registration_path %>
+<% end %>
+
 <% @assets.each do |asset| %>
   <%= asset.file_file_name %>
 <% end %>
