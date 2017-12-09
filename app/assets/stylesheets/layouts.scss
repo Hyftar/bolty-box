@@ -15,9 +15,6 @@
   @include logo(24px);
 }
 
-.spacer {
-  flex: 1;
-}
 
 .logo-container {
   @include logo-container(24px);
