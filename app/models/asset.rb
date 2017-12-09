@@ -30,8 +30,7 @@ class Asset < ApplicationRecord
     return if file_file_size.nil?
     user = directory.owner
     space_left = user.max_space - user.space_used
-    if file_file_size > space_left
-      errors.add(:file, 'is too big, you lack the required space to save it.')
-    end
+    return unless file_file_size > space_left
+    errors.add(:file, 'is too big, you lack the required space to save it.')
   end
 end
