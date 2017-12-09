@@ -1,15 +1,22 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  <div>
-    <%= f.email_field :email, autofocus: true %>
-    <%= f.label :email %>
+  <div class="session-container">
+  <div class="session-logo-container"><div class="session-logo">Bolty-box</div></div>
+  <div class="session-line">
+    <div class="alignement-spacer"></div>
+    <%= f.label :email, class: "session-label"%>
+    <%= f.email_field :email, autofocus: true, class: "session-field"  %>
   </div>
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: 'off' %>
+  <div class="session-line">
+    <div class="alignement-spacer"></div>
+    <%= f.label :password, class: "session-label" %>
+    <%= f.password_field :password, autocomplete: 'off', class: "session-field" %>
   </div>
-  <div>
-    <%= f.submit 'Login' %>
+  <div class="session-line">
+    <div class="spacer"></div>
+    <%= f.submit 'Login', class: "session-submit" %>
+    <div class="spacer"></div>
   </div>
-<% end %>
-<%= render "devise/shared/links" %>
+  <% end %>
+  <%= render "devise/shared/links" %>
+</div>
