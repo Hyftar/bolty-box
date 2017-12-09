@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <%= form.hidden_field :directory_id, value: @directory_id %>
+  <%= form.hidden_field :directory_id, value: params[:directory_id] || params[:asset][:directory_id] %>
 
   <div class="field">
     <%= form.label :file %>

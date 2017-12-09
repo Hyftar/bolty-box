@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128071905) do
+ActiveRecord::Schema.define(version: 20171209042550) do
 
   create_table "assets", force: :cascade do |t|
     t.integer "directory_id", null: false
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 20171128071905) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "space_used", limit: 8, default: 0
+    t.integer "max_space", limit: 8, default: 53687091200
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

@@ -2,7 +2,6 @@ class AssetsController < ApplicationController
   before_action :set_asset, only: %i[destroy download]
   before_action :can_user_use?, only: [:download]
   before_action :can_user_edit?, only: [:destroy]
-  before_action :set_directory, only: [:new]
 
   def new
     @asset = Asset.new
@@ -55,10 +54,6 @@ class AssetsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_asset
     @asset = Asset.find(params[:id])
-  end
-
-  def set_directory
-    @directory_id = params[:directory_id]
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

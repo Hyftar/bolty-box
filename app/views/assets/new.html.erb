@@ -2,4 +2,4 @@
 
 <%= render 'form', asset: @asset %>
 
-<%= link_to 'Back', directory_path(@directory_id) %>
+<%= link_to 'Back', directory_path(params[:directory_id] || params[:asset][:directory_id]) %>
