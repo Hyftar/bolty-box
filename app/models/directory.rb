@@ -11,6 +11,11 @@ class Directory < ApplicationRecord
 
   validates :name, presence: true
 
+  before_destroy do |record|
+    record.assets.destroy_all
+    Directory.where(parent: self).destroy_all
+  end
+
   def shared_with?(user)
     if user.admin?
       true
