@@ -15,7 +15,6 @@
   @include logo(24px);
 }
 
-
 .logo-container {
   @include logo-container(24px);
   padding: 6px 12px;
@@ -28,15 +27,39 @@
   }
 }
 
+.header-dropdown {
+  display: flex;
+  flex-flow: column nowrap;
+  line-height: $header-height;
+  text-align: center;
+  @include header-font;
+  width: 15%;
+  padding-left: 2px;
+}
+
+.menu-square {
+  margin: 2.5%;
+  width: 90%;
+  background-color: $secondary-color;
+  height: calc(#{$header-height} * 0.2);
+}
+
+.header-menu-list {
+  position: relative;
+  display: none;
+  flex-flow: column;
+}
+
 .header-button {
   height: $header-height;
   line-height: $header-height;
+  background-color: $primary-color;
   text-align: center;
   vertical-align: middle;
-  padding: 0 10px;
+  width: 100%;
+  margin: auto;
   white-space: nowrap;
   @include header-font;
-
   &:hover {
     background-color: $primary-color-light;
     color: $secondary-color-light;
