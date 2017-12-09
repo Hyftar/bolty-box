@@ -17,18 +17,15 @@ class Directory < ApplicationRecord
   end
 
   def shared_with?(user)
-    if user.admin?
-      true
-    else
-      ActiveRecord::Base
-        .connection
-        .execute(
-          "SELECT CAST(COUNT(*) AS BIT)
-          FROM directories_users
-          WHERE user_id = #{user.id} AND directory_id = #{id}
-          LIMIT 1"
-        )[0][0].nonzero?
-    end
+    return true if user.admin?
+    ActiveRecord::Base
+      .connection
+      .execute(
+        "SELECT CAST(COUNT(*) AS BIT)
+        FROM directories_users
+        WHERE user_id = #{user.id} AND directory_id = #{id}
+        LIMIT 1"
+      )[0][0].nonzero?
   end
 
   def children_shared_with(user)
