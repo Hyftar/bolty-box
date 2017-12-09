@@ -3,7 +3,7 @@
 require 'byebug'
 
 class RegistrationsController < Devise::RegistrationsController
-  before_action :redirect_unless_admin, only: %i[new create edit update]
+  before_action :redirect_unless_admin, only: %i[new create]
   skip_before_action :require_no_authentication
 
   private

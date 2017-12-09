@@ -1,5 +1,5 @@
 <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
-
+<%= link_to 'edit profile', edit_registration_path(current_user) %>
 <% if current_user.admin? %>
   <%= link_to 'create new user account', new_user_registration_path %>
 <% end %>
