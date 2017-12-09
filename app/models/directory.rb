@@ -9,6 +9,8 @@ class Directory < ApplicationRecord
   alias_attribute :shared_with, :users
   alias_attribute :public?, :public
 
+  validates :name, presence: true
+
   def shared_with?(user)
     if user.admin?
       true
