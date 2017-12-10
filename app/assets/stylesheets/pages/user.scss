@@ -18,27 +18,14 @@
 }
 
 .session-line {
-  display: inline-flex;
-  justify-content: flex-start;
-  align-content: center;
+  @include row;
   padding: 5px;
 }
 
 .session-label {
-  padding: 5px;
-  width: 10%;
-  text-align: left;
+  @include label;
 }
 
 .session-field {
-  width: 150px;
-  border-radius: 10px;
-}
-
-.session-submit {
-  background-color: $secondary-color;
-  border-radius: 10px;
-  &:hover {
-    background-color: $secondary-color-dark;
-  }
+  @include textfield;
 }

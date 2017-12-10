@@ -1,6 +1,5 @@
 <% if current_user.owner?(@directory) %>
-  <div class="directory-index-container">
-    <div class="spacer"></div>
+  <div class="spacer"></div>
     <div class="directory-actions-links">
       <div class="spacer"></div>
       <%= link_to directory_add_to_share_path(directory) do %>
@@ -11,5 +10,4 @@
       <div class="directory-index-destroy-button">Destroy this directory</div>
       <% end %>
     </div>
-  </div>
 <% end %>

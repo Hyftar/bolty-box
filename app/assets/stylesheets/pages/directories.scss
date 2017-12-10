@@ -1,13 +1,6 @@
 // Place all the styles related to the Directories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$directory-line-height: 40px;
-$file-line-height: 20px;
-$icon-width: 6%;
-
-.has-right-margin {
-  margin-right: 15px;
-}
 
 .directory-index-container {
   border-radius: 10px;
@@ -22,22 +15,14 @@ $icon-width: 6%;
 
 .directory-index-return {
   min-width: 11%;
-  background-color: $secondary-color-light;
   padding: 0.5%;
-  text-align: center;
-  border-radius: 10px;
-  margin: 5px;
+  margin: auto;
   line-height: 10px;
-  &:hover {
-    background-color: $secondary-color-dark;
-  }
 }
 
 .directory-actions-links {
-  display: flex;
-  justify-content: space-around;
-  margin: 5px auto;
-  width: 97.5%;
+  @include directory-line;
+  width: 97%;
 }
 
 .directory-button-text {
@@ -47,28 +32,17 @@ $icon-width: 6%;
 .directory-index-show {
   border-radius: 10px;
   background-color: white;
-  display: flex;
-  flex-flow: row wrap;
+  @include directory-line;
   width: 96%;
-  margin: 5px auto;
   padding: 0.5%;
-}
-@mixin directory-index-show-icon {
-  margin: auto 0px;
-  min-width: $icon-width;
-  max-width: $icon-width;
-  vertical-align: middle;
-  text-align: center;
 }
 
 .directory-index-show-icon {
-  @include directory-index-show-icon;
-  font-size: $directory-line-height !important;
+  @include show-icon($directory-line-height,$icon-width);
 }
 
 .directory-index-show-icon-file {
-  @include directory-index-show-icon;
-  font-size: $file-line-height !important;
+  @include show-icon($file-line-height,$icon-width);
 }
 
 @mixin directory-index-show-info-container {
@@ -109,49 +83,24 @@ $icon-width: 6%;
 
 .directory-submit-line {
   font-size: 25px;
-  display: flex;
-  flex-flow: row nowrap;
+  @include row;
   justify-content: center;
-  align-content: center;
   margin: 10px auto;
   text-align: center;
 }
 
 .directory-submit-name {
-  text-align: center;
-  margin-right: 5px;
+  @include label;
 }
 
 .directory-submit-textfield {
-  background-color: white;
-  color: black;
-  border-radius: 10px;
-  width: 150px;
-}
-
-.directory-submit-button {
-  text-align: center;
-  margin: auto;
-  background-color: $secondary-color;
-  border-radius: 10px;
-  &:hover {
-    background-color: $secondary-color-dark;
-  }
+  @include textfield;
 }
 
 .directory-submit-back-button {
   align-self: flex-end;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  background-color: $secondary-color;
-  border-radius: 10px;
   padding: 5px;
   font-size: 25px;
-  &:hover {
-    background-color: $secondary-color-dark;
-  }
 }
 
 .padding-top-bot-min {
@@ -169,4 +118,8 @@ $icon-width: 6%;
 
 .text-center {
   text-align: center;
+}
+
+.has-right-margin {
+  margin-right: 15px !important;
 }

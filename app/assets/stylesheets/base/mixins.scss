@@ -5,7 +5,7 @@
   text-decoration: none;
   white-space: nowrap;
   color: $primary-color;
-  margin: auto 0px;
+  margin: auto 0;
   font-size: $font-size;
   padding-bottom: calc(#{$font-size} / 12);
 }
@@ -22,4 +22,56 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+@mixin column {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-content: center;
+}
+@mixin row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-content: center;
+}
+@mixin align-side {
+  margin-left: auto;
+  margin-right: auto;
+}
+@mixin align-height {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+@mixin basic-color {
+  color: $secondary-color;
+  background-color: $primary-color;
+}
+@mixin button-basic {
+  background-color: $secondary-color-light;
+  text-align: center;
+  border-radius: 10px;
+}
+@mixin show-icon($font-size,$icon-width) {
+  margin: auto 0;
+  min-width: $icon-width;
+  max-width: $icon-width;
+  vertical-align: middle;
+  text-align: center;
+  font-size: $font-size !important;
+}
+@mixin label {
+  width: 100px;
+  text-align: left;
+}
+@mixin textfield {
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  width: 150px;
+}
+@mixin directory-line {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 5px auto;
 }

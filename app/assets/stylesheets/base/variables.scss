@@ -1,17 +1,20 @@
 //size
 $header-height: 50px;
-//color
+$directory-line-height: 40px;
+$file-line-height: 20px;
+$icon-width: 6%; //color
 $primary-color: rgb(0, 130, 194);
 $primary-color-light: rgb(0, 150, 224);
 $primary-color-dark: rgb(0, 81, 121);
 $secondary-color: #e3b14b;
 $secondary-color-light: rgb(224, 150, 0);
 $secondary-color-dark: rgb(158, 106, 0);
-$directory-background-color: rgb(222, 222, 222);
-// MAIN ELEMENTS
+$directory-background-color: rgb(222, 222, 222); // MAIN ELEMENTS
+
 html {
   height: 100%;
 }
+
 body {
   min-height: 100%;
   display: flex;
@@ -33,11 +36,19 @@ a {
   }
 }
 
-
 .spacer {
   flex: 1;
 }
 
 .alignement-spacer {
   width: 40%;
+}
+
+.basic-button {
+  background-color: $secondary-color;
+  text-align: center;
+  border-radius: 10px;
+  &:hover {
+    background-color: $secondary-color-dark;
+  }
 }

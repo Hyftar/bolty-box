@@ -1,12 +1,8 @@
 .header {
-  flex-shrink: 1;
+  @include row;
   width: 100%;
   min-width: 360px;
   height: $header-height;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-end;
-  align-content: center;
   background-color: $primary-color;
   color: $secondary-color;
 }
@@ -17,10 +13,8 @@
 
 .logo-container {
   @include logo-container(24px);
-  padding: 6px 12px;
   margin-right: 0px;
-  margin-top: auto;
-  margin-bottom: auto;
+  @include align-height;
   margin-left: 10px;
   &:hover {
     box-shadow: 2px 2px 3px rgba(0,0,0,0.5);
@@ -28,14 +22,28 @@
 }
 
 .header-dropdown {
-  display: flex;
-  flex-flow: column nowrap;
+  @include column;
   width: 15%;
   padding-left: 2px;
 }
 
+.header-main-button {
+  height: $header-height;
+  line-height: $header-height;
+  background-color: $primary-color;
+  @include align-height;
+  @include header-font;
+  @include column;
+  justify-content: center;
+  width: $header-height;
+  flex-shrink: 0;
+  margin-right: 5px;
+  align-self: flex-end;
+  white-space: nowrap;
+}
+
 .menu-square {
-  margin: 2.5% 0px;
+  margin: 2px 0px;
   height: calc(#{$header-height} * 0.2);
   width: 100%;
   background-color: $secondary-color;
@@ -43,40 +51,18 @@
 
 .header-menu-list {
   position: relative;
+  @include column;
   display: none;
-  flex-flow: column;
-  height: auto;
-  flex-grow: 0;
-  flex-shrink: 0;
-}
-
-.header-main-button {
-  height: $header-height !important;
-  line-height: $header-height;
-  background-color: $primary-color;
-  width: 25%;
-  flex-grow: 0;
-  flex-shrink: 0;
-  align-self: flex-end;
-  justify-content: center;
-  align-content: center;
-  display: flex;
-  flex-flow: column;
-  padding-right: 5px;
-  white-space: nowrap;
-  @include header-font;
 }
 
 .header-button {
   height: $header-height;
   line-height: $header-height;
-  background-color: $primary-color;
-  text-align: center;
-  vertical-align: middle;
-  width: 100%;
-  margin: auto;
-  white-space: nowrap;
+  @include basic-color;
   @include header-font;
+  text-align: center;
+  width: 100%;
+  white-space: nowrap;
   &:hover {
     background-color: $primary-color-light;
     color: $secondary-color-light;
@@ -85,23 +71,17 @@
 
 .center {
   flex-grow: 1;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-content: center;
+  @include column;
 }
 
 .footer {
   flex-shrink: 1;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-content: center;
+  @include row;
   background-color: $primary-color;
 }
 
 .footer-button {
-  padding: 2px 5px;
+  margin: 2px 5px;
   color: $primary-color-dark;
   &:visited {
     color: $primary-color-dark;
