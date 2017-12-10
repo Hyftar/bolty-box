@@ -1,8 +1,9 @@
+isOpen = true
 $ ->
-  $(".header-dropdown").hover(
+  $(".header-main-button,.header-menu-list").hover(
     (e) ->
-      $(e.currentTarget).children(".header-menu-list").css('display','flex')
+      $(".header-menu-list").css('display','flex')
     ,
     (e) ->
-      $(e.currentTarget).children(".header-menu-list").css('display','none')
+      $(".header-menu-list").css('display','none')
     )

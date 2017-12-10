@@ -30,24 +30,41 @@
 .header-dropdown {
   display: flex;
   flex-flow: column nowrap;
-  line-height: $header-height;
-  text-align: center;
-  @include header-font;
   width: 15%;
   padding-left: 2px;
 }
 
 .menu-square {
-  margin: 2.5%;
-  width: 90%;
-  background-color: $secondary-color;
+  margin: 2.5% 0px;
   height: calc(#{$header-height} * 0.2);
+  width: 100%;
+  background-color: $secondary-color;
 }
 
 .header-menu-list {
   position: relative;
   display: none;
   flex-flow: column;
+  height: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.header-main-button {
+  height: $header-height !important;
+  line-height: $header-height;
+  background-color: $primary-color;
+  width: 25%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  align-self: flex-end;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  flex-flow: column;
+  padding-right: 5px;
+  white-space: nowrap;
+  @include header-font;
 }
 
 .header-button {
