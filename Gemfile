@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'figaro'
 # using some space tricks on active item
 gem 'jquery-rails'
 # Icons for files
