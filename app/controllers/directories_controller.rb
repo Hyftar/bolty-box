@@ -1,6 +1,3 @@
-require "byebug"
-
-
 class DirectoriesController < ApplicationController
   before_action :set_user_directories, only: [:index]
   before_action :set_share_directories, only: [:share]
