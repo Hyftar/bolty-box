@@ -97,18 +97,22 @@ class DirectoriesController < ApplicationController
       if current_user.admin?
         Directory.where(parent: nil)
       else
-        dir_shared_with_user =
-          ActiveRecord::Base
-          .connection
-          .execute(
-            "SELECT directory_id
-            FROM directories_users
-            WHERE user_id=#{current_user.id}"
-          ).map { |x| x['directory_id'] }
-        Directory
-          .where(user: current_user, parent: nil)
-          .or(Directory.where(public: true, parent: nil))
-          .or(Directory.where(id: dir_shared_with_user, parent: nil))
+        Directory.find_by_sql("
+          SELECT *
+          FROM directories
+          WHERE
+            directory_id IS NULL AND
+            (
+              public = 't' OR
+              user_id = #{current_user.id} OR
+              id IN
+              (
+                SELECT directory_id
+                FROM directories_users
+                WHERE user_id = #{current_user.id}
+              )
+            )
+        ")
       end
   end
 
