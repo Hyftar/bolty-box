@@ -28,6 +28,17 @@ class Directory < ApplicationRecord
       )[0][0].nonzero?
   end
 
+  def all_owners
+    owners = []
+    directory = self
+    loop do
+      owners << directory.owner
+      directory = directory.parent
+      break if directory.nil?
+    end
+    owners
+  end
+
   def children_shared_with(user)
     if user.admin?
       Directory.where(parent: self)

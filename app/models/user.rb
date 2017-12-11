@@ -33,6 +33,7 @@ class User < ApplicationRecord
   end
 
   def owner?(directory)
-    directory.owner == self || admin?
+    directory.all_owners.include?(self) ||
+      admin?
   end
 end
