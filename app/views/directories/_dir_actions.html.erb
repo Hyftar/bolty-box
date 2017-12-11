@@ -3,11 +3,11 @@
     <div class="directory-actions-links">
       <div class="spacer"></div>
       <%= link_to directory_add_to_share_path(directory) do %>
-      <div class="directory-index-destroy-button has-right-margin">Share this directory</div>
+      <div class="directory-index-destroy-button has-right-margin basic-button">Share this directory</div>
       <% end %>
 
       <%= link_to directory_path(directory), method: :delete, data: {confirm: "Are you sure you wanna destroy this directory"} do %>
-      <div class="directory-index-destroy-button">Destroy this directory</div>
+      <div class="directory-index-destroy-button basic-button">Destroy this directory</div>
       <% end %>
     </div>
 <% end %>
