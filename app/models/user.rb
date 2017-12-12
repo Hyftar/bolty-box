@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def full_name
-    "#{given_name} #{last_name}"
+    "#{given_name} #{last_name}".titleize
   end
 
   def allowed_to_browse?(directory)
