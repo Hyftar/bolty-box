@@ -1,9 +1,31 @@
+<%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js' %>
+
 <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
 <%= link_to 'edit profile', edit_registration_path(current_user) %>
 <% if current_user.admin? %>
   <%= link_to 'create new user account', new_user_registration_path %>
 <% end %>
 
-<% @assets.each do |asset| %>
-  <%= asset.file_file_name %>
-<% end %>
+<canvas id="space-used-chart">
+</canvas>
+
+<script>
+  var ctx = document.getElementById("space-used-chart").getContext('2d');
+  var pieChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Space used', 'Remaining space'],
+      datasets: [{
+        label: "Space (Bytes)",
+        backgroundColor: ["#b02a2a", "#169937"],
+        data: [<%= current_user.space_used %>, <%= current_user.max_space - current_user.space_used %>]
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: "Remaining space and space used (bytes)"
+      }
+    }
+  })
+</script>
