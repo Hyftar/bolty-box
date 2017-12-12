@@ -1,0 +1,50 @@
+* {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 16px;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+
+h1 {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.8em;
+  font-style: italic;
+}
+
+h4 {
+  font-size: 1.6em;
+  font-weight: bold;
+}

@@ -1,3 +1,7 @@
+@mixin header-font {
+  font-size: 1.8em;
+  font-weight: bold;
+}
 @mixin logo($font-size) {
   font-family: 'Lobster Two', cursive;
   font-weight: 700;

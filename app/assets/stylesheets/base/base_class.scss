@@ -1,0 +1,37 @@
+.spacer {
+  flex: 1;
+}
+
+.alignement-spacer {
+  width: 40%;
+}
+
+.basic-button {
+  background-color: $secondary-color;
+  text-align: center;
+  border-radius: 10px;
+  &:hover {
+    background-color: $secondary-color-dark;
+  }
+}
+
+.padding-top-bot-min {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.line-inherit {
+  line-height: inherit;
+}
+
+.linebreak {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.has-right-margin {
+  margin-right: 15px !important;
+}
