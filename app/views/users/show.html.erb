@@ -1,6 +1,5 @@
 <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js' %>
 
-<%= link_to 'sign out', destroy_user_session_path, method: :delete %>
 <%= link_to 'edit profile', edit_registration_path(current_user) %>
 <% if current_user.admin? %>
   <%= link_to 'create new user account', new_user_registration_path %>
