@@ -1,9 +1,11 @@
 <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js' %>
-
-<%= link_to 'edit profile', edit_registration_path(current_user) %>
-<% if current_user.admin? %>
-  <%= link_to 'create new user account', new_user_registration_path %>
-<% end %>
+<div class="session-line">
+  <div class="spacer"></div>
+  <%= link_to 'edit profile', edit_registration_path(current_user), class: 'basic-button has-right-margin' %>
+  <% if current_user.admin? %>
+    <%= link_to 'create new user account', new_user_registration_path, class: 'basic-button' %>
+  <% end %>
+</div>
 
 <canvas id="space-used-chart">
 </canvas>
