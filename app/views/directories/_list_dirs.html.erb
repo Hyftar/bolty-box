@@ -1,34 +1,30 @@
 <% if @directories.any? %>
-  <div class="directory-index-show padding-top-bot-min">
-    <div class="directory-index-show-icon"></div>
+  <div class="directory-index-line">
+    <div class="directory-index-icon-directory"></div>
     <div class="spacer"></div>
-    <div class="directory-index-show-info-container line-inherit">
-      <div class="directory-index-show-info">
-        Name
-      </div>
-      <div class="directory-index-show-info">
-        Owner
-      </div>
-      <div class="directory-index-show-info">
-        Public
-      </div>
+    <div class="directory-index-line-info">
+      Name
+    </div>
+    <div class="directory-index-line-info">
+      Owner
+    </div>
+    <div class="directory-index-line-info">
+      Public
     </div>
   </div>
 
   <% @directories.each do |directory| %>
-    <%= link_to directory_path(directory), class: "directory-index-show" do %>
-      <%= fa_icon "folder", class: "directory-index-show-icon" %>
+    <%= link_to directory_path(directory), class: "directory-index-line" do %>
+      <%= fa_icon "folder", class: "directory-index-icon-directory" %>
       <div class="spacer"></div>
-      <div class="directory-index-show-info-container">
-        <div class="directory-index-show-info">
-          <%= directory.name %>
-        </div>
-        <div class="directory-index-show-info">
-          <%= owner_alias(directory) %>
-        </div>
-        <div class="directory-index-show-info">
-          <%= public_text(directory) %>
-        </div>
+      <div class="directory-index-line-info">
+        <%= directory.name %>
+      </div>
+      <div class="directory-index-line-info">
+        <%= owner_alias(directory) %>
+      </div>
+      <div class="directory-index-line-info">
+        <%= public_text(directory) %>
       </div>
     <% end %>
   <% end %>

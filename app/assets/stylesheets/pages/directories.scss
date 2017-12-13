@@ -5,9 +5,8 @@
 .directory-index-container {
   border-radius: 10px;
   background-color: $directory-background-color;
-  display: flex;
+  @include column;
   flex-grow: 1;
-  flex-flow: column wrap;
   width: 96%;
   margin: 5px auto;
   padding: 5px;
@@ -29,43 +28,30 @@
   margin-left: 10px;
 }
 
-.directory-index-show {
-  border-radius: 10px;
-  background-color: white;
-  @include directory-line;
-  width: 96%;
-  padding: 0.5%;
-}
-
-.directory-index-show-icon {
-  @include show-icon($directory-line-height,$icon-width);
-}
-
-.directory-index-show-icon-file {
-  @include show-icon($file-line-height,$icon-width);
-}
-
-@mixin directory-index-show-info-container {
-  display: flex;
-  width: calc(100% - #{$icon-width});
-  flex-flow: row wrap;
+.directory-index-line {
+  width: 100%;
+  @include row;
   justify-content: space-around;
-  align-content: center;
+  background-color: white;
+  border-radius: 10px;
+  margin: 5px auto;
+  padding: 2px;
 }
 
-.directory-index-show-info-container {
-  @include directory-index-show-info-container;
-  line-height: $directory-line-height;
-}
-.directory-index-show-info-container-file {
-  @include directory-index-show-info-container;
-  line-height: $file-line-height;
+.directory-index-icon-directory {
+  @include show-icon($directory-line-height);
 }
 
-.directory-index-show-info {
+.directory-index-icon-file {
+  @include show-icon($file-line-height);
+}
+
+.directory-index-line-info {
   text-align: center;
+  @include row;
   width: 30%;
   padding: 1px;
+  margin: auto 0px;
 }
 
 .directory-index-destroy-button {

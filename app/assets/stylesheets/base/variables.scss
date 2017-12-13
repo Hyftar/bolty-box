@@ -1,8 +1,17 @@
-//size
+//element size
 $header-height: 50px;
 $directory-line-height: 40px;
 $file-line-height: 20px;
-$icon-width: 6%; //color
+
+//style size
+$base-padding: 5px;
+
+//font size
+$base-font: 16px;
+$header-font: calc(#{$header-height} / 2);
+$home-logo-font: 75px;
+
+//color
 $primary-color: rgb(0, 130, 194);
 $primary-color-light: rgb(0, 150, 224);
 $primary-color-dark: rgb(0, 81, 121);

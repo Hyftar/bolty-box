@@ -1,20 +1,19 @@
 .header {
   @include row;
+  @include basic-color;
   width: 100%;
   min-width: 360px;
   height: $header-height;
-  background-color: $primary-color;
-  color: $secondary-color;
 }
 
 .logo {
-  @include logo(24px);
+  @include logo($header-font);
 }
 
 .logo-container {
-  @include logo-container(24px);
-  margin-right: 0px;
+  @include logo-container($header-font);
   @include align-height;
+  margin-right: 0px;
   margin-left: 10px;
   &:hover {
     box-shadow: 2px 2px 3px rgba(0,0,0,0.5);
@@ -24,18 +23,18 @@
 .header-dropdown {
   @include column;
   width: 15%;
+  min-width: $header-height;
   padding-left: 2px;
 }
 
 .header-main-button {
   height: $header-height;
+  width: $header-height;
   line-height: $header-height;
   background-color: $primary-color;
   @include align-height;
-  @include header-font;
   @include column;
   justify-content: center;
-  width: $header-height;
   flex-shrink: 0;
   margin-right: 5px;
   align-self: flex-end;
@@ -56,13 +55,14 @@
 }
 
 .header-button {
-  height: $header-height;
-  line-height: $header-height;
-  @include basic-color;
-  @include header-font;
-  text-align: center;
   width: 100%;
+  @include basic-color;
+  padding: 5px 0px;
+  font-size: $header-font;
+  font-weight: bold;
+  text-align: center;
   white-space: nowrap;
+  border: 1px solid $primary-color-light;
   &:hover {
     background-color: $primary-color-light;
     color: $secondary-color-light;
@@ -75,7 +75,6 @@
 }
 
 .footer {
-  flex-shrink: 1;
   @include row;
   background-color: $primary-color;
 }

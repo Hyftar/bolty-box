@@ -2,7 +2,6 @@
   @include logo-container(40px);
   margin: 15px auto;
   box-shadow: 3px 3px 5px black;
-
 }
 
 .session-logo {
@@ -10,9 +9,7 @@
 }
 
 .session-container {
-  display: flex;
-  flex-flow: column wrap;
-  text-align: center;
+  @include column;
   justify-content: center;
   padding: 10px;
 }
@@ -22,10 +19,11 @@
   padding: 5px;
 }
 
-.session-label {
-  @include label;
-}
+.session-link {
+  text-decoration: underline;
+  color: black;
 
-.session-field {
-  @include textfield;
+  &:hover {
+    color: blue;
+  }
 }

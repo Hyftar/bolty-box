@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $(".directory-index-show").hover(
+  $(".directory-index-line").hover(
     (e) ->
       $(e.currentTarget).children(".fa-folder").toggleClass('fa-folder fa-folder-open')
     ,

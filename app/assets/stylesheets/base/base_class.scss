@@ -15,11 +15,6 @@
   }
 }
 
-.padding-top-bot-min {
-  padding-top: 1px;
-  padding-bottom: 1px;
-}
-
 .line-inherit {
   line-height: inherit;
 }
@@ -34,4 +29,16 @@
 
 .has-right-margin {
   margin-right: 15px !important;
+}
+
+.label {
+  width: 100px;
+  text-align: left;
+}
+
+.textfield {
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  width: 150px;
 }

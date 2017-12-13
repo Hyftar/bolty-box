@@ -1,29 +1,27 @@
 <% if @directory.assets.any? %>
-<div class="directory-index-show padding-top-bot-min">
-  <div class="directory-index-show-icon"></div>
-  <div class="directory-index-show-info-container line-inherit">
-    <div class="directory-index-show-info">
+  <div class="directory-index-line">
+    <div class="directory-index-icon-file"></div>
+    <div class="spacer"></div>
+    <div class="directory-index-line-info">
       Name
     </div>
     <div class="spacer"></div>
-    <div class="directory-index-show-info">
+    <div class="directory-index-line-info">
       Size
     </div>
   </div>
-</div>
 
-<% @directory.assets.each do |asset| %>
-  <%= link_to download_asset_path(asset), class: "directory-index-show" do %>
-  <%= fa_icon "file", class: "directory-index-show-icon-file" %>
-  <div class="directory-index-show-info-container-file">
-    <div class="directory-index-show-info">
-      <%= asset.file_file_name %>
-    </div>
-    <div class="spacer"></div>
-    <div class="directory-index-show-info">
-      <%= number_to_human_size(asset.file_file_size) %>
-    </div>
-  </div>
-<% end %>
-<% end %>
+  <% @directory.assets.each do |asset| %>
+    <%= link_to download_asset_path(asset), class: "directory-index-line" do %>
+      <%= fa_icon "file", class: "directory-index-icon-file" %>
+      <div class="spacer"></div>
+      <div class="directory-index-line-info">
+        <%= asset.file_file_name %>
+      </div>
+      <div class="spacer"></div>
+      <div class="directory-index-line-info">
+        <%= number_to_human_size(asset.file_file_size) %>
+      </div>
+    <% end %>
+  <% end %>
 <% end %>

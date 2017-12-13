@@ -1,7 +1,3 @@
-@mixin header-font {
-  font-size: 1.8em;
-  font-weight: bold;
-}
 @mixin logo($font-size) {
   font-family: 'Lobster Two', cursive;
   font-weight: 700;
@@ -56,12 +52,11 @@
   text-align: center;
   border-radius: 10px;
 }
-@mixin show-icon($font-size,$icon-width) {
+@mixin show-icon($font-size) {
   margin: auto 0;
-  min-width: $icon-width;
-  max-width: $icon-width;
-  vertical-align: middle;
-  text-align: center;
+  min-width: calc(#{$font-size} * 1.5);
+  max-width: calc(#{$font-size} * 1.5);
+  text-align: center;  
   font-size: $font-size !important;
 }
 @mixin label {
