@@ -1,5 +1,6 @@
-<h1>New Asset</h1>
-
-<%= render 'form', asset: @asset %>
-
-<%= link_to 'Back', directory_path(params[:directory_id] || params[:asset][:directory_id]) %>
+<div class="directory-index-container">
+  <h1 class="text-center">New Asset</h1>
+  <%= render 'form', asset: @asset %>
+  <div class="spacer"></div>
+  <%= link_to 'Back', directory_path(params[:directory_id] || params[:asset][:directory_id]), class: "directory-submit-back-button basic-button" %>
+</div>

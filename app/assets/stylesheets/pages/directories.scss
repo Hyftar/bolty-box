@@ -80,3 +80,8 @@
   padding: 5px;
   font-size: 25px;
 }
+
+.asset-new-line {
+  @include row;
+  margin: 10px auto;
+}

@@ -1,13 +1,8 @@
 <% if current_user.owner?(@directory) %>
   <div class="spacer"></div>
-    <div class="directory-actions-links">
+    <div class="directory-links-line">
       <div class="spacer"></div>
-      <%= link_to directory_add_to_share_path(directory) do %>
-      <div class="directory-index-destroy-button has-right-margin basic-button">Share this directory</div>
-      <% end %>
-
-      <%= link_to directory_path(directory), method: :delete, data: {confirm: "Are you sure you wanna destroy this directory"} do %>
-      <div class="directory-index-destroy-button basic-button">Destroy this directory</div>
-      <% end %>
+      <%= link_to 'Share this directory', directory_add_to_share_path(directory), class: 'has-right-margin basic-button' %>
+      <%= link_to 'Destroy this directory', directory_path(directory), method: :delete, data: {confirm: "Are you sure you wanna destroy this directory"}, class: "basic-button" %>
     </div>
 <% end %>

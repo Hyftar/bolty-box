@@ -1,24 +1,26 @@
 <%= form_with(model: asset, local: true) do |form| %>
-  <% if asset.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(asset.errors.count, "error") %> prohibited this asset from being saved:</h2>
+<% if asset.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(asset.errors.count, "error") %>
+      prohibited this asset from being saved:</h2>
 
-      <ul>
+    <ul>
       <% asset.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= form.hidden_field :directory_id, value: params[:directory_id] || params[:asset][:directory_id] %>
-
-  <div class="field">
-    <%= form.label :file %>
-    <%= form.file_field :file %>
+    </ul>
   </div>
+<% end %>
+<%= form.hidden_field :directory_id, value: params[:directory_id] || params[:asset][:directory_id] %>
+<div class="asset-new-line">
+  <div class="alignement-spacer"></div>
+  <%= form.file_field :file %>
+  <div class="spacer"></div>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="asset-new-line">
+  <div class="spacer"></div>
+  <%= form.submit(class: "basic-button") %>
+  <div class="spacer"></div>
+</div>
 <% end %>
