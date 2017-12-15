@@ -1,16 +1,18 @@
 class Asset < ApplicationRecord
   after_create do |record|
     user = record.directory.owner
-    return if user.admin?
-    user.space_used += record.file_file_size
-    user.save
+    unless user.admin?
+      user.space_used += record.file_file_size
+      user.save
+    end
   end
 
   before_destroy do |record|
     user = record.directory.owner
-    return if user.admin?
-    user.space_used -= record.file_file_size
-    user.save
+    unless user.admin?
+      user.space_used -= record.file_file_size
+      user.save
+    end
   end
 
   belongs_to :directory
