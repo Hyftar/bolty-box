@@ -63,6 +63,8 @@
   text-align: center;
   white-space: nowrap;
   border: 1px solid $primary-color-light;
+  border-left: none;
+  border-right: none;
   &:hover {
     background-color: $primary-color-light;
     color: $secondary-color-light;

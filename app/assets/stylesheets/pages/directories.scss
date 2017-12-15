@@ -19,9 +19,9 @@
   line-height: 10px;
 }
 
-.directory-actions-links {
+.directory-links-line {
   @include directory-line;
-  width: 97%;
+  width: 98%;
 }
 
 .directory-button-text {
@@ -29,13 +29,11 @@
 }
 
 .directory-index-line {
-  width: 100%;
-  @include row;
-  justify-content: space-around;
+  @include directory-line;
+  width: 96%;
   background-color: white;
   border-radius: 10px;
-  margin: 5px auto;
-  padding: 2px;
+  padding: 0px 1%;
 }
 
 .directory-index-icon-directory {
