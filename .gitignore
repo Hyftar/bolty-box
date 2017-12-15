@@ -36,3 +36,4 @@ pickle-email-*.html
 /config/application.yml
 /db/test/*
 !/db/test/.keep
+/db/assets/*
