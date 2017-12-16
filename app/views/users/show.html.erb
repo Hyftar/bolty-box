@@ -7,6 +7,21 @@
   <% end %>
 </div>
 
+<div class="user-stats">
+  <div>
+    Space used:
+    <span>
+      <%= number_to_human_size(current_user.space_used) %>
+    </span>
+  </div>
+  <div>
+    Space left:
+    <span>
+      <%= number_to_human_size(current_user.max_space - current_user.space_used) %>
+    </span>
+  </div>
+</div>
+
 <canvas id="space-used-chart">
 </canvas>
 
