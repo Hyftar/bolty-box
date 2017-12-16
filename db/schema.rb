@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171209042550) do
+ActiveRecord::Schema.define(version: 20171216045009) do
 
   create_table "assets", force: :cascade do |t|
     t.integer "directory_id", null: false
     t.string "file_file_name", null: false
     t.string "file_content_type", null: false
-    t.integer "file_file_size", null: false
+    t.bigint "file_file_size", null: false
     t.datetime "file_updated_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
